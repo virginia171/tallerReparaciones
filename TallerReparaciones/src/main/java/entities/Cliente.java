@@ -46,13 +46,6 @@ public class Cliente {
 			this.email = email;
 		}
 		
-		public static void mostrarPersona(Cliente c) {
-			System.out.println("--------- Cliente ---------");
-			System.out.println("> Persona id:" + c.getId_cliente());
-			System.out.println("> Dame nombre:" + c.getNombre());
-			System.out.println("> Dame el email:" + c.getEmail());
-			System.out.println("> Dame el telefono:" + c.getTelefono());
-		}
 }
 			
 
