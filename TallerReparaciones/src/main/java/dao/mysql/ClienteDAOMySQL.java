@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import dao.DBConnection;
 import dao.interfaces.ClienteDAO;
+import dwes.maven.mysql.PasswordUtils;
 import entities.Cliente;
 
 public class ClienteDAOMySQL implements ClienteDAO{
@@ -39,6 +40,7 @@ public class ClienteDAOMySQL implements ClienteDAO{
 		} catch (SQLException e) {
 			System.out.println("> NOK:" + e.getMessage());
 		}
+		return 0;
 	}
 
 	@Override

@@ -1,10 +1,12 @@
 package dao.mysql;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import dao.DBConnection;
 import dao.interfaces.VehiculoDAO;
 import dwes.maven.mysql.ConexionJDBC;
 import dwes.maven.mysql.PasswordUtils;
@@ -12,17 +14,17 @@ import entities.Vehiculo;
 
 public class VehiculoDAOMySQL implements VehiculoDAO{
 
-	Private Connection conexion;
+private Connection conexion;
 	
 	public VehiculoDAOMySQL() {
 		conexion = DBConnection.getInstance().getConnection();
 	}
-
+	
 	@Override
 	public int insert(Vehiculo v) {
 		try {
 			// PreparedStatement
-			String sql = "INSERT INTO Vehiculo (id_vehciulo, matricula, marca, modelo, cliente_id) VALUES(?, ?, ?, ?, ?);";
+			String sql = "INSERT INTO Vehiculo (id_vehiculo, matricula, marca, modelo, cliente_id) VALUES(?, ?, ?, ?, ?);";
 			PreparedStatement pst = conexion.prepareStatement(sql);
 			pst.setInt(1, 1); // posicion 1, valor 1
 			pst.setString(2, "Gonzalo");
@@ -38,6 +40,7 @@ public class VehiculoDAOMySQL implements VehiculoDAO{
 		} catch (SQLException e) {
 			System.out.println("> NOK:" + e.getMessage());
 		}
+		return 0;
 		
 	}
 
@@ -49,7 +52,22 @@ public class VehiculoDAOMySQL implements VehiculoDAO{
 
 	@Override
 	public int delete(Vehiculo v) {
-		// TODO Auto-generated method stub
+		try {
+			String sqlDelete = "DELETE FROM Vehiculo WHERE id_vehiculo = ?;";
+			PreparedStatement pst = conexion.prepareStatement(sqlDelete);
+			pst.setInt(1, 1); // borrar id
+			int filas = pst.executeUpdate();
+			
+			if (filas > 0) {
+				System.out.println("> OK. Persona con id 1 eliminada correctamente.");
+			} else {
+				System.out.println("> NOK. Persona con id 1 no se encuentra en la base de datos.");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		return 0;
 	}
 
@@ -67,3 +85,4 @@ public class VehiculoDAOMySQL implements VehiculoDAO{
 
 }
 
+ 

@@ -5,14 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import dao.DBConnection;
 import dao.interfaces.ReparacionDAO;
 import dwes.maven.mysql.PasswordUtils;
 import entities.Reparacion;
 
 public class ReparacionDAOMySQL implements ReparacionDAO{
-	
+
 	private Connection conexion;
 	
 	public ReparacionDAOMySQL() {
@@ -40,6 +39,7 @@ public class ReparacionDAOMySQL implements ReparacionDAO{
 		} catch (SQLException e) {
 			System.out.println("> NOK:" + e.getMessage());
 		}
+		return 0;
 
 	}
 
