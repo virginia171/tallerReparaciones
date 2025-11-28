@@ -11,4 +11,4 @@ public interface DAOFactory {
 	public ClienteDAO getClienteDAO();
 	public ReparacionDAO getReparacionDAO();
 	public VehiculoDAO getVehiculoDAO();
-}
+s}

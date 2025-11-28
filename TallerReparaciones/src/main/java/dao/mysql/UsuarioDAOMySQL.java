@@ -19,7 +19,7 @@ public class UsuarioDAOMySQL implements UsuarioDAO  {
 		conexion = DBConnection.getInstance().getConnection();
 	}
 	
-	
+	 
 	@Override
 	public int insert(Usuario c) {
 		try {
