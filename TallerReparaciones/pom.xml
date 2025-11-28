@@ -7,7 +7,7 @@
     <name>TallerReparaciones</name>
   
   
-<!--    <properties>-->
+<!--     <properties>-->
 <!--    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
 <!--    <maven.compiler.source>8</maven.compiler.source>-->
 <!--    <maven.compiler.target>8</maven.compiler.target>-->
@@ -33,7 +33,12 @@
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.26</version>
 </dependency>
-</dependencies>
+    <dependency>
+    	<groupId>dwes.prueba</groupId>
+    	<artifactId>Practica</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+	</dependencies>
 
 <build>
     <plugins>
